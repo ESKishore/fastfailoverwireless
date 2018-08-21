@@ -7,6 +7,7 @@ Abstract – The spurt in interest in the Internet of Things (IoT) has spurred o
 
 
 I.  INTRODUCTION
+
 Software Defined Networking (SDN), in recent years, has gained traction as a scalability and programmability solution. This is of great importance in designing data centres and optical networks. SDN provides great network configurability with a platform for virtualising network functions at low costs.
 Wireless Mesh Networks (WMN) have important applications in areas like transportation systems, health systems, disaster recovery and public safety networks, wireless community networks, and Google Wi-Fi.
 
@@ -16,10 +17,12 @@ In wireless networks, an issue of significant concern is the exploration of fail
 
 
 II. ROADMAP
+
 Objective: In this project, we implement the fast failover mechanism by setting up a wireless network prototype. With focus on implementation of Fast Failover using Bidirectional Forwarding Detection (BFD) and Connectivity Fault Management (CFM), we consider a single link failure for UDP/TCP traffic and compare the throughput and hop length metrics. The OpenFlow-enabled network will make use of Fast Failover group tables to reroute packets and curb the ill effects of link failures. This is one way of protecting the network.
 
 
-IV. EXPERIMENTAL SETUP
+III. EXPERIMENTAL SETUP
+
 For the scope of this project, we make use of Mininet-WiFi, which is “a fork of Mininet SDN network emulator and extends the functionality of Mininet by adding virtualized WiFi stations and access points (AP) based on drivers and the 8011_hwsim wireless simulation driver”.
 
 Mininet-WiFi not only supports all the normal SDN emulation functions of the standard Mininet network emulator but also adds new functionality. Additionally, it should be mentioned that Mininet-WiFi inherits all the limitations of Mininet such as using a single Linus kernel, not being able to create custom routing with the OpenFlow controller, etc.
