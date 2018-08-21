@@ -1,27 +1,28 @@
-# fastfailoverwireless
-Fast Failover in the Wireless Environment
+
+# Fast Failover in the Wireless Environment
 
 
 
 Abstract – The spurt in interest in the Internet of Things (IoT) has spurred on wide-area deployments of IoT subnetworks. In IoT networks, multiple wireless communication solutions exist together. Some examples of these are cellular, WiFi, ZigBee, Bluetooth. These are integrated from geographically distributed networking infrastructures. Speaking in the context of Software Defined Networking (SDN), it is common knowledge that the control plane is disassociated from the data plane. For both wired and wireless networks, Link Failure is a common phenomenon in the elements present in the data plane. Link failure is handled locally by OpenFlow switches with the help of Fast Failover Group, which makes use of buckets to watch ports or groups. In case a port is down, the bucket associated with a live port in the list is chosen. This experiment aims to implement fast failover group in a wireless environment and study the consequent behaviour of the network based on evaluation metrics like throughput, hop count, etc. 
 
 
-I.  INTRODUCTION
+## INTRODUCTION
 
 Software Defined Networking (SDN), in recent years, has gained traction as a scalability and programmability solution. This is of great importance in designing data centres and optical networks. SDN provides great network configurability with a platform for virtualising network functions at low costs.
 Wireless Mesh Networks (WMN) have important applications in areas like transportation systems, health systems, disaster recovery and public safety networks, wireless community networks, and Google Wi-Fi.
 
 
-Motivation: Of the many beneficial services that SDN provides, network configurability is of greater interest when working in a wireless environment. However, due to the inherent distributed nature of Wireless Mesh Network routing protocols the management and reconfiguration of routers becomes error-prone. Also, the flow routing is rigid, and the convergence times are huge.
+### Motivation
+Of the many beneficial services that SDN provides, network configurability is of greater interest when working in a wireless environment. However, due to the inherent distributed nature of Wireless Mesh Network routing protocols the management and reconfiguration of routers becomes error-prone. Also, the flow routing is rigid, and the convergence times are huge.
 In wireless networks, an issue of significant concern is the exploration of failure recovery mechanisms for data plane elements. A trustable failure recovery mechanism will ensure good quality of service (QoS) within the deployed network.
 
 
-II. ROADMAP
+## ROADMAP
 
 Objective: In this project, we implement the fast failover mechanism by setting up a wireless network prototype. With focus on implementation of Fast Failover using Bidirectional Forwarding Detection (BFD) and Connectivity Fault Management (CFM), we consider a single link failure for UDP/TCP traffic and compare the throughput and hop length metrics. The OpenFlow-enabled network will make use of Fast Failover group tables to reroute packets and curb the ill effects of link failures. This is one way of protecting the network.
 
 
-III. EXPERIMENTAL SETUP
+## EXPERIMENTAL SETUP
 
 For the scope of this project, we make use of Mininet-WiFi, which is “a fork of Mininet SDN network emulator and extends the functionality of Mininet by adding virtualized WiFi stations and access points (AP) based on drivers and the 8011_hwsim wireless simulation driver”.
 
@@ -39,7 +40,7 @@ However, the reason for this could also be that the stations were in close proxi
 
 Another issue we faced while conducting our experiment was the handling of looped networks. To resolve this issue, we used the Spanning Tree Protocol.
 
-Spanning Tree Protocol (STP):
+### Spanning Tree Protocol (STP):
 This protocol is used to build loop free logical topologies. Preventing bridge loops and the broadcast radiation, which is the accretion of large amounts of broadcast and multicast traffic, is the primary function of STP. It creates a spanning tree within the network, thereby removing loops.
 Once this was done, we were able to insert flow entries into the access points of a looped network by using STP, we endeavoured to implement Fast Failover using BFD and CFM.
 In implementing both BFD and CFM, we had to find out the shortest path from one access point to another access point, and the next shortest path after removing an edge that was used in the shortest path. This was done to use the second path in case of a link failure. Now that the two paths have been found, a link is failed at random and the packets should be forwarded on the next shortest path. Then we assess metrics such as throughput, hop count and delay.
